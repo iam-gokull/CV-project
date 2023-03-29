@@ -6,32 +6,32 @@ import { faPhone, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-
 
 class ViewPersonalDetails extends Component {
     render() {
+        const { personalDetails } = this.props;
         return (
             <section className="view-personal-details">
                 <div className="header">
                     <div className="main-details">
-                        <h1 className="name">Gokul L</h1>
-                        <h3 className="job-title">Software Engineer</h3>
+                        <h1 className="name">{personalDetails.name}</h1>
+                        <h3 className="job-title">{personalDetails.jobTitle}</h3>
                     </div>
                     <div className="side-details">
                         <div className="details">
-                            <span><FontAwesomeIcon icon={faPhone} /></span>
-                            <span>0123456789</span>
+                            <span>{personalDetails.mobileNumber ? <FontAwesomeIcon icon={faPhone} className="icon"/> : null}</span>
+                            <span>{personalDetails.mobileNumber}</span>
                         </div>
                         <div className="details">
-                            <span><FontAwesomeIcon icon={faEnvelope} /></span>
-                            <span>gokul@gmail.com</span>
+                            <span>{personalDetails.mailId ? <FontAwesomeIcon icon={faEnvelope} className="icon"/> : null}</span>
+                            <span>{personalDetails.mailId}</span>
                         </div>
                         <div className="details">
-                            <span><FontAwesomeIcon icon={faLocationDot} /></span>
-                            <span>Chennai, India</span>
+                            <span>{personalDetails.location ? <FontAwesomeIcon icon={faLocationDot} className="icon"/> : null}</span>
+                            <span>{personalDetails.location}</span>
                         </div>
                     </div>
                 </div>
                 <div className="description">
-                    <div className="line-breaker"></div>
-                    <p>Cupidatat sunt anim incididunt nisi labore sunt nulla Lorem elit irure. Aliquip quis excepteur et nostrud enim irure nostrud officia. Et deserunt et aliquip voluptate elit cupidatat. Adipisicing enim minim do anim eiusmod est. Irure laboris anim voluptate proident. Cillum reprehenderit est magna minim. Nostrud ex aute laborum ea irure amet ea ipsum ut non minim anim nisi.
-                    </p>
+                    {personalDetails.description ? <div className="line-breaker"></div> : null}
+                    <p>{personalDetails.description}</p>
                 </div>
             </section>
         );

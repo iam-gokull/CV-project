@@ -70,6 +70,13 @@ input:focus, textarea:focus {
     outline: none;
 }
 
+.editor {
+    border: 2px solid var(--main-green);
+    width: 62%;
+    margin-top: 20px;
+    padding: 20px;
+}
+
 .hide {
     display: none;
 }
@@ -78,4 +85,16 @@ input:focus, textarea:focus {
     width: 100%;
     border: 2px solid var(--main-green);
     margin: 20px 0;
+}
+
+.preview {
+    box-shadow: 5px 0 6px 0 hsl(0 0% 0%/.2);
+    border: 1px solid var(--main-green);
+    width: 57%;
+    margin-top: 20px;
+    padding: 30px 60px;
+}
+
+.icon {
+    color: var(--main-green);
 }
