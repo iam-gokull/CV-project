@@ -1,0 +1,12 @@
+:root {
+    --main-green: #1a5c70;
+    --main-whie: #ffffff;
+}
+
+.preview {
+    box-shadow: 5px 0 6px 0 hsl(0 0% 0%/.2);
+    border: 1px solid var(--main-green);
+    width: 56%;
+    margin-top: 20px;
+    padding: 30px 60px;
+}

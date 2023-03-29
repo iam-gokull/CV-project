@@ -1,0 +1,11 @@
+:root {
+    --main-green: #1a5c70;
+    --main-whie: #ffffff;
+}
+
+.editor {
+    border: 2px solid var(--main-green);
+    width: 62%;
+    margin-top: 20px;
+    padding: 20px;
+}
