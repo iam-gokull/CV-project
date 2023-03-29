@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './view.css'
 
-import ViewPersonalDetails from "./ViewPersonalDetails";
+import ViewPersonalDetails from "./PersonalDetails/ViewPersonalDetails";
 
 class View extends Component {
     render() {

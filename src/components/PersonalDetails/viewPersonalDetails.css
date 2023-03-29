@@ -1,0 +1,42 @@
+:root {
+    --main-green: #1a5c70;
+    --main-whie: #ffffff;
+}
+
+.view-personal-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.name {
+    font-size: 32px;
+    color: var(--main-green);
+    font-weight: 600;
+    margin: 0;
+}
+
+.job-title {
+    font-size: 22px;
+    color: var(--main-green);
+    font-weight: 400;
+    margin: 0;
+    opacity: 0.8;
+}
+
+.side-details {
+    margin-left: 50px;
+}
+
+.details {
+    display: flex;
+}
+
+.details > span:nth-child(1){
+    width: 25px;
+}

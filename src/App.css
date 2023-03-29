@@ -73,3 +73,9 @@ input:focus, textarea:focus {
 .hide {
     display: none;
 }
+
+.line-breaker {
+    width: 100%;
+    border: 2px solid var(--main-green);
+    margin: 20px 0;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import './edit.css'
 
-import EditPersonalDetails from "./EditPersonalDetails";
+import EditPersonalDetails from "./PersonalDetails/EditPersonalDetails";
 
 class Edit extends Component {
     render() {
