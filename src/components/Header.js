@@ -9,8 +9,8 @@ class Header extends Component {
             <div className="header-content">
                 <h3 className="header-logo">Resumes</h3>
                 <div className="header-menu">
-                    <button className={editIsActive ? "edit-btn btn active" : "edit-btn btn"} onClick={handleButtonChange}>Edit</button>
-                    <button className={viewIsActive ? "view-btn btn active" : "view-btn btn"} onClick={handleButtonChange}>Preview</button>
+                    <button className={editIsActive ? "edit-btn btn active" : "edit-btn btn"} onClick={editIsActive ? null : handleButtonChange}>Edit</button>
+                    <button className={viewIsActive ? "view-btn btn active" : "view-btn btn"} onClick={viewIsActive ? null : handleButtonChange}>Preview</button>
                 </div>
             </div>
         );

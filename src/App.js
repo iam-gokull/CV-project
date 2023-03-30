@@ -18,8 +18,8 @@ class App extends Component {
         mobileNumber: '',
         mailId: '',
         location: '',
-        description: ''
       },
+      description: ''
     }
   }
 
@@ -47,7 +47,7 @@ class App extends Component {
         <Header handleButtonChange={this.handleButtonChange} editIsActive={editIsActive} viewIsActive={viewIsActive}/>
         <div className={editIsActive ? "editor" : "editor hide"}>
           <form>
-            <EditPersonalDetails handlePersonalDetailsChange={this.handlePersonalDetailsChange} personalDetails={personalDetails}/>
+            <EditPersonalDetails handlePersonalDetailsChange={this.handlePersonalDetailsChange} personalDetails={personalDetails} handleDescriptionChange={this.handleDescriptionChange}/>
           </form>
         </div>
         <div className={viewIsActive ? "preview" : "preview hide"}>

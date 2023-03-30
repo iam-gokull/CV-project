@@ -1,12 +1,14 @@
 import './editPersonalDetails.css';
 import React, { Component } from 'react';
 
-class EditPersonalDetails extends Component {
+import RichText from '../RichText';
 
+class EditPersonalDetails extends Component {
 
     render() {
 
         const {handlePersonalDetailsChange, personalDetails} = this.props;
+
         return(
             <section className="edit-personal-details form-group">
                 <h5 className="heading">Personal details</h5>
@@ -26,7 +28,8 @@ class EditPersonalDetails extends Component {
                     <input type="text" id="location" placeholder="Location" name="location" value={personalDetails.location} onChange={handlePersonalDetailsChange}></input>
                 </label>
                 <label htmlFor="description">
-                    <textarea rows="5" id="description" name="description" placeholder="Description" value={personalDetails.description} onChange={handlePersonalDetailsChange}></textarea>
+                    {/* <textarea rows="5" id="description" name="description" placeholder="Description" value={personalDetails.description} onChange={handlePersonalDetailsChange}></textarea> */}
+                    <RichText name="description" value={personalDetails.description} onContentChange={handlePersonalDetailsChange}/>
                 </label>
             </section>
         );

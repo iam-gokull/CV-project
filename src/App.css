@@ -39,11 +39,6 @@
     color: var(--main-whie);
 }
 
-.btn.active:hover {
-    background-color: var(--main-whie);
-    color: var(--main-green);
-}
-
 .heading {
     color: var(--main-green);
     font-size: 20px;
@@ -56,17 +51,17 @@
     flex-direction: column;
 }
 
-input, textarea {
+input, .rich-text {
     padding: 10px;
-    font-size: 15px;
+    font-size: 15px !important;;
     width: 97%;
     margin-top: 10px;
-    border-radius: 5px;
-    border: 1px solid var(--main-green);
+    border-radius: 5px !important;;
+    border: 1px solid var(--main-green) !important;
     color: var(--main-green);
 }
 
-input:focus, textarea:focus {
+input:focus, .rich-text:focus {
     outline: none;
 }
 
@@ -85,6 +80,8 @@ input:focus, textarea:focus {
     width: 100%;
     border: 2px solid var(--main-green);
     margin: 20px 0;
+    opacity: 0.7;
+    border-radius: 2px;
 }
 
 .preview {
@@ -93,8 +90,10 @@ input:focus, textarea:focus {
     width: 57%;
     margin-top: 20px;
     padding: 30px 60px;
+    border-radius: 2px;
 }
 
 .icon {
     color: var(--main-green);
+    opacity: 0.7;
 }
