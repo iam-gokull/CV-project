@@ -13,7 +13,6 @@ class RichText extends Component {
         }
 
         this.handleChange = this.handleChange.bind(this);
-        this.shouldComponentUpdate = this.shouldComponentUpdate.bind(this)
     }
 
     handleChange(content) {
@@ -29,13 +28,9 @@ class RichText extends Component {
         this.props.onContentChange(event);
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        return this.state.content && typeof this.state.content.getEditorState === 'function';
-    }
-
     render() {
         const toolbarConfig = {
-            // Optionally specify the groups to display (displayed in the order listed).
+            
             display: ['INLINE_STYLE_BUTTONS', 'BLOCK_TYPE_BUTTONS', 'LINK_BUTTONS'],
             INLINE_STYLE_BUTTONS: [
                 { label: 'Bold', style: 'BOLD', className: 'custom-css-class' },
