@@ -12,12 +12,12 @@
 
 .btn {
     background: none;
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
     background-color: var(--main-whie);
     color: var(--main-green);
     font-size: 15px;
@@ -51,17 +51,21 @@
     flex-direction: column;
 }
 
-input, .rich-text {
+input,
+.rich-text {
     padding: 10px;
-    font-size: 15px !important;;
+    font-size: 15px !important;
+    ;
     width: 97%;
     margin-top: 10px;
-    border-radius: 5px !important;;
+    border-radius: 5px !important;
+    ;
     border: 1px solid var(--main-green) !important;
     color: var(--main-green);
 }
 
-input:focus, .rich-text:focus {
+input:focus,
+.rich-text:focus {
     outline: none;
 }
 
@@ -91,6 +95,12 @@ input:focus, .rich-text:focus {
     margin-top: 20px;
     padding: 30px 60px;
     border-radius: 2px;
+    min-width: 210mm;
+    min-height: 297mm;
+    max-width: 210mm;
+    max-height: 297mm;
+    overflow: hidden;
+    page-break-after: always;
 }
 
 .icon {
