@@ -28,7 +28,6 @@ class EditPersonalDetails extends Component {
                     <input type="text" id="location" placeholder="Location" name="location" value={personalDetails.location} onChange={handlePersonalDetailsChange}></input>
                 </label>
                 <label htmlFor="description">
-                    {/* <textarea rows="5" id="description" name="description" placeholder="Description" value={personalDetails.description} onChange={handlePersonalDetailsChange}></textarea> */}
                     <RichText name="description" value={personalDetails.description} onContentChange={handlePersonalDetailsChange}/>
                 </label>
             </section>
