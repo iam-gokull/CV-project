@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 
 import Header from './components/Header';
 import EditPersonalDetails from './components/PersonalDetails/EditPersonalDetails';
+import EditWorkDetails from './components/WorkDetails/EditWorkDetails';
 import ViewPersonalDetails from './components/PersonalDetails/ViewPersonalDetails';
+import ViewWorkDetails from './components/WorkDetails/ViewWorkDetails';
+import { v4 as uuidv4 } from 'uuid';
 
 class App extends Component {
 
@@ -18,34 +21,18 @@ class App extends Component {
         mobileNumber: '',
         mailId: '',
         location: '',
+        description: ''
       },
-      description: ''
+      workDetails: [],
     }
 
-    this.a4ContainerRef = React.createRef();
   }
 
   handleButtonChange = () => {
     this.setState(prevState => ({
-      editIsActive:!prevState.editIsActive,
-      viewIsActive:!prevState.viewIsActive,
+      editIsActive: !prevState.editIsActive,
+      viewIsActive: !prevState.viewIsActive,
     }));
-  }
-
-  componentDidMount() {
-    const a4Container = this.a4ContainerRef.current;
-    const contentHeight = a4Container.offsetHeight;
-    const a4Height = 297; // in mm
-
-    if (contentHeight > a4Height) {
-      // create another A4 sized div and add the excess content to it
-      const excessContent = a4Container.innerHTML.slice(a4Container.innerHTML.indexOf("</p>") + 4);
-      a4Container.innerHTML = a4Container.innerHTML.slice(0, a4Container.innerHTML.indexOf("</p>") + 4);
-      const newA4Container = document.createElement("div");
-      newA4Container.classList.add("a4-size");
-      newA4Container.innerHTML = excessContent;
-      document.body.appendChild(newA4Container);
-    }
   }
 
   handlePersonalDetailsChange = (e) => {
@@ -58,21 +45,61 @@ class App extends Component {
     }));
   }
 
+  handleWorkDetailsChange = (e, id) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      workDetails: prevState.workDetails.map(detail => {
+        if (detail.id === id) {
+          return {
+            ...detail,
+            [name]: value
+          };
+        } else {
+          return detail;
+        }
+      })
+    }));
+  }
+
+  addWorkExperience = (e) => {
+    e.preventDefault();
+    const newWorkExperience = {
+      id: uuidv4(),
+      company: '',
+      position: '',
+      startDate: '',
+      endDate: '',
+      experience: ''
+    };
+    this.setState(prevState => ({
+      workDetails: [...prevState.workDetails, newWorkExperience],
+    }));
+  }
+
+  deleteWorkExperience = (e, id) => {
+    e.preventDefault();
+    this.setState(prevState => ({
+      workDetails: prevState.workDetails.filter(detail => detail.id !== id),
+    }));
+  }
+
   render() {
-    const { personalDetails, editIsActive, viewIsActive } = this.state;
+    const { personalDetails, editIsActive, viewIsActive, workDetails, workExperienceCount } = this.state;
     return (
       <div className="App">
-        <Header handleButtonChange={this.handleButtonChange} editIsActive={editIsActive} viewIsActive={viewIsActive}/>
+        <Header handleButtonChange={this.handleButtonChange} editIsActive={editIsActive} viewIsActive={viewIsActive} />
         <div className={editIsActive ? "editor" : "editor hide"}>
           <form>
-            <EditPersonalDetails handlePersonalDetailsChange={this.handlePersonalDetailsChange} personalDetails={personalDetails} handleDescriptionChange={this.handleDescriptionChange}/>
+            <EditPersonalDetails handlePersonalDetailsChange={this.handlePersonalDetailsChange} personalDetails={personalDetails} />
+            <EditWorkDetails handleWorkDetailsChange={this.handleWorkDetailsChange} workDetails={workDetails} addWorkExperience={this.addWorkExperience} deleteWorkExperience={this.deleteWorkExperience} workExperienceCount={workExperienceCount}/>
           </form>
         </div>
+
         <div className={viewIsActive ? "preview" : "preview hide"}>
-          <div className="a4-size" ref={this.a4ContainerRef}>
-            <ViewPersonalDetails personalDetails={personalDetails}/>
+          <div className="a4-size">
+            <ViewPersonalDetails personalDetails={personalDetails} />
+            <ViewWorkDetails workDetails={workDetails} />
           </div>
-          
         </div>
       </div>
     );

@@ -27,6 +27,7 @@
     width: 5rem;
     transition: 0.3s;
     font-weight: 400;
+    margin: 15px 0;
 }
 
 .btn:hover {
@@ -44,6 +45,7 @@
     font-size: 20px;
     font-weight: 500;
     margin: 0;
+    margin-top: 10px;
 }
 
 .form-group {
@@ -106,4 +108,8 @@ input:focus,
 .icon {
     color: var(--main-green);
     opacity: 0.7;
+}
+
+.rte-text {
+    padding: 0 10px;
 }

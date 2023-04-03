@@ -1,0 +1,38 @@
+:root {
+    --main-green: #1a5c70;
+    --main-whie: #ffffff;
+}
+
+.side-heading {
+    margin-top: 15px;
+    color: var(--main-green);
+    opacity: 0.8;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.work-details-header {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between; 
+}
+
+.work-details-header * {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.work-details-side-header {
+    display: flex;
+    gap: 5px;
+}
+
+.work-experience > div {
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
+.rte {
+    padding: 0 8px;
+}
