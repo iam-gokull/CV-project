@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import './editWorkDetails.css';
 
 import RichText from "../RichText";
 
@@ -9,7 +8,7 @@ class EditWorkDetails extends Component {
         const { handleWorkDetailsChange, deleteWorkExperience } = this.props;
         return (<div className={`work-experience-group`} >
 
-                <div className="work-experience" key={id}>
+                <div className="edit-work-experience" key={id}>
                     <label htmlFor={`company-${id}`}>
                         <input type="text" id={`company-${id}`} placeholder="Company" name="company" value={company} onChange={(e) => handleWorkDetailsChange(e, id)} />
                     </label>
@@ -37,8 +36,7 @@ class EditWorkDetails extends Component {
             <section className="edi-work-details form-group">
                 <h5 className="heading">Work experience</h5>
                 {workDetails.map(workExperience => <this.workExperience {...workExperience} />)}
-                <button className="add-btn btn" onClick={addWorkExperience}>Add</button>
-
+                <button className={workDetails.length !== 0 ? "add-btn btn appended" : "add-btn btn"} onClick={addWorkExperience}>Add</button>
             </section>
         );
     }

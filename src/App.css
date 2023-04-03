@@ -110,6 +110,45 @@ input:focus,
     opacity: 0.7;
 }
 
+.add-btn.appended {
+    bottom: 77px;
+    position: relative;
+    left: 109px;
+}
+
+
+/* Common styles for Experience and education */
+
+.side-heading {
+    margin-top: 15px;
+    color: var(--main-green);
+    opacity: 0.8;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.sub-details-header {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between; 
+}
+
+.sub-details-header * {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.sub-details-side-header {
+    display: flex;
+    gap: 5px;
+}
+
+.sub-fields > div {
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+
 .rte-text {
-    padding: 0 10px;
+    padding: 0 8px;
 }
