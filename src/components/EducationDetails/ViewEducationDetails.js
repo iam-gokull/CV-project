@@ -5,8 +5,8 @@ class ViewEducationDetails extends Component {
         const { educationDetails } = this.props;
         return (
             <section className="view-education-details">
-                <div className="view-educationsub-fields">
-                    {educationDetails.length !== 0 ? <h4 className="side-heading">Education</h4> : null}
+                <div className="view-education sub-fields">
+                    {educationDetails.length !== 0 ? <div><h4 className="side-heading">Education<div className="line-breaker"></div></h4></div> : null}
                     {educationDetails.map((education) => (
                         <div>
                         <div key={education.id} className="sub-details-header">

@@ -6,7 +6,7 @@ class ViewWorkDetails extends Component {
         return (
             <section className="view-work-details">
                 <div className="view-work-experience sub-fields">
-                    {workDetails.length !== 0 ? <h4 className="side-heading">Work Experience</h4> : null}
+                    {workDetails.length !== 0 ? <div><h4 className="side-heading">Work experience<div className="line-breaker"></div></h4></div> : null}
                     {workDetails.map((workExperience) => (
                         <div>
                         <div key={workExperience.id} className="sub-details-header">

@@ -4,8 +4,8 @@ class ViewSkills extends Component {
     render() {
         const { skills } = this.props;
         return (
-            <section className="view-skills">
-                {skills.length !== 0 ? <h4 className="side-heading">Skills</h4> : null}
+            <section className="view-skills sub-fields">
+                {skills ? <div><h4 className="side-heading">Skills<div className="line-breaker"></div></h4></div> : null}
                 <div className="rte-text" dangerouslySetInnerHTML={{ __html: skills }}></div>
             </section>
         );

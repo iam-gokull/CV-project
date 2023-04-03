@@ -6,10 +6,16 @@ import EditPersonalDetails from './components/PersonalDetails/EditPersonalDetail
 import EditWorkDetails from './components/WorkDetails/EditWorkDetails';
 import EditEducationDetails from './components/EducationDetails/EditEducationDetails';
 import EditSkills from './components/Skills/EditSkills';
+import EditProjects from './components/Projects/EditProjects';
+import EditCertifications from './components/Certifications/EditCertifications';
+
 import ViewPersonalDetails from './components/PersonalDetails/ViewPersonalDetails';
 import ViewWorkDetails from './components/WorkDetails/ViewWorkDetails';
 import ViewEducationDetails from './components/EducationDetails/ViewEducationDetails';
 import ViewSkills from './components/Skills/ViewSkills';
+import ViewProjects from './components/Projects/ViewProjects';
+import ViewCertifications from './components/Certifications/ViewCertifications';
+
 import { v4 as uuidv4 } from 'uuid';
 
 class App extends Component {
@@ -25,11 +31,14 @@ class App extends Component {
         mobileNumber: '',
         mailId: '',
         location: '',
+        link: '',
         description: ''
       },
       workDetails: [],
       educationDetails: [],
-      skills: ''
+      skills: '',
+      projects: '',
+      certifications: '',
     }
 
   }
@@ -133,8 +142,20 @@ class App extends Component {
     });
   }
 
+  handleProjectsChange = (e) => {
+    this.setState({
+      projects: e.target.value
+    });
+  }
+
+  handleCertificationsChange = (e) => {
+    this.setState({
+      certifications: e.target.value
+    });
+  }
+
   render() {
-    const { personalDetails, editIsActive, viewIsActive, workDetails, educationDetails, skills } = this.state;
+    const { personalDetails, editIsActive, viewIsActive, workDetails, educationDetails, skills, projects, certifications } = this.state;
     return (
       <div className="App">
         <Header handleButtonChange={this.handleButtonChange} editIsActive={editIsActive} viewIsActive={viewIsActive} />
@@ -144,6 +165,8 @@ class App extends Component {
             <EditWorkDetails handleWorkDetailsChange={this.handleWorkDetailsChange} workDetails={workDetails} addWorkExperience={this.addWorkExperience} deleteWorkExperience={this.deleteWorkExperience}/>
             <EditEducationDetails handleEducationDetailsChange={this.handleEducationDetailsChange} educationDetails={educationDetails} addEducation={this.addEducation} deleteEducation={this.deleteEducation} />
             <EditSkills handleSkillsChange={this.handleSkillsChange} skills={skills} />
+            <EditProjects handleProjectsChange={this.handleProjectsChange} projects={projects} />
+            <EditCertifications handleCertificationsChange={this.handleCertificationsChange} certifications={certifications} />
           </form>
         </div>
 
@@ -153,6 +176,8 @@ class App extends Component {
             <ViewWorkDetails workDetails={workDetails} />
             <ViewEducationDetails educationDetails={educationDetails} />
             <ViewSkills skills={skills} />
+            <ViewProjects projects={projects} />
+            <ViewCertifications certifications={certifications} />
           </div>
         </div>
       </div>

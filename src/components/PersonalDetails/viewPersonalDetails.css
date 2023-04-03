@@ -40,9 +40,3 @@
 .details > span:nth-child(1){
     width: 25px;
 }
-
-.line-breaker {
-    width: 100%;
-    border: 2px solid var(--main-green);
-    margin: 20px 0;
-}

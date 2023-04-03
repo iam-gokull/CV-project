@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import './viewPersonalDetails.css';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPhone, faEnvelope, faLocationDot } from '@fortawesome/free-solid-svg-icons'
+import { faPhone, faEnvelope, faLocationDot, faLink } from '@fortawesome/free-solid-svg-icons'
 
 class ViewPersonalDetails extends Component {
     render() {
@@ -26,6 +26,10 @@ class ViewPersonalDetails extends Component {
                         <div className="details">
                             <span>{personalDetails.location ? <FontAwesomeIcon icon={faLocationDot} className="icon"/> : null}</span>
                             <span>{personalDetails.location}</span>
+                        </div>
+                        <div className="details">
+                            <span>{personalDetails.link ? <FontAwesomeIcon icon={faLink} className="icon"/> : null}</span>
+                            <span>{personalDetails.link}</span>
                         </div>
                     </div>
                 </div>

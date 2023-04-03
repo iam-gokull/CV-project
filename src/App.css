@@ -8,6 +8,7 @@
     flex-direction: column;
     align-items: center;
     width: 100vw;
+    font-size: 14px;
 }
 
 .btn {
@@ -56,14 +57,11 @@
 input,
 .rich-text {
     padding: 10px;
-    font-size: 15px !important;
-    ;
+    font-size: 14px !important;
     width: 97%;
     margin-top: 10px;
     border-radius: 5px !important;
-    ;
     border: 1px solid var(--main-green) !important;
-    color: var(--main-green);
 }
 
 input:focus,
@@ -132,6 +130,11 @@ input:focus,
     font-weight: 400;
 }
 
+.side-heading > div {
+    border: 1px solid var(--main-green);
+    margin: 5px -1px;
+}
+
 .sub-details-header {
     margin: 10px 0;
     display: flex;
@@ -148,8 +151,6 @@ input:focus,
     gap: 5px;
 }
 
-.sub-fields > div {
-    font-size: 15px;
-    font-weight: 400;
-    margin-top: 10px;
+.sub-fields > div:first-child {
+    width: fit-content;
 }

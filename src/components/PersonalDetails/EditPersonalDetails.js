@@ -1,4 +1,3 @@
-import './editPersonalDetails.css';
 import React, { Component } from 'react';
 
 import RichText from '../RichText';
@@ -26,6 +25,9 @@ class EditPersonalDetails extends Component {
                 </label>
                 <label htmlFor="location">
                     <input type="text" id="location" placeholder="Location" name="location" value={personalDetails.location} onChange={handlePersonalDetailsChange}></input>
+                </label>
+                <label htmlFor="link">
+                    <input type="text" id="link" placeholder="Link" name="link" value={personalDetails.link} onChange={handlePersonalDetailsChange}></input>
                 </label>
                 <label htmlFor="description">
                     <RichText name="description" value={personalDetails.description} onContentChange={handlePersonalDetailsChange}/>
