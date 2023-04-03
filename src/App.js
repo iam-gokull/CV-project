@@ -5,9 +5,11 @@ import Header from './components/Header';
 import EditPersonalDetails from './components/PersonalDetails/EditPersonalDetails';
 import EditWorkDetails from './components/WorkDetails/EditWorkDetails';
 import EditEducationDetails from './components/EducationDetails/EditEducationDetails';
+import EditSkills from './components/Skills/EditSkills';
 import ViewPersonalDetails from './components/PersonalDetails/ViewPersonalDetails';
 import ViewWorkDetails from './components/WorkDetails/ViewWorkDetails';
 import ViewEducationDetails from './components/EducationDetails/ViewEducationDetails';
+import ViewSkills from './components/Skills/ViewSkills';
 import { v4 as uuidv4 } from 'uuid';
 
 class App extends Component {
@@ -27,6 +29,7 @@ class App extends Component {
       },
       workDetails: [],
       educationDetails: [],
+      skills: ''
     }
 
   }
@@ -59,7 +62,7 @@ class App extends Component {
           };
         } else {
           return detail;
-        }
+        } 
       })
     }));
   }
@@ -124,8 +127,14 @@ class App extends Component {
     }));
   }
 
+  handleSkillsChange = (e) => {
+    this.setState({
+      skills: e.target.value
+    });
+  }
+
   render() {
-    const { personalDetails, editIsActive, viewIsActive, workDetails, educationDetails } = this.state;
+    const { personalDetails, editIsActive, viewIsActive, workDetails, educationDetails, skills } = this.state;
     return (
       <div className="App">
         <Header handleButtonChange={this.handleButtonChange} editIsActive={editIsActive} viewIsActive={viewIsActive} />
@@ -134,6 +143,7 @@ class App extends Component {
             <EditPersonalDetails handlePersonalDetailsChange={this.handlePersonalDetailsChange} personalDetails={personalDetails} />
             <EditWorkDetails handleWorkDetailsChange={this.handleWorkDetailsChange} workDetails={workDetails} addWorkExperience={this.addWorkExperience} deleteWorkExperience={this.deleteWorkExperience}/>
             <EditEducationDetails handleEducationDetailsChange={this.handleEducationDetailsChange} educationDetails={educationDetails} addEducation={this.addEducation} deleteEducation={this.deleteEducation} />
+            <EditSkills handleSkillsChange={this.handleSkillsChange} skills={skills} />
           </form>
         </div>
 
@@ -142,6 +152,7 @@ class App extends Component {
             <ViewPersonalDetails personalDetails={personalDetails} />
             <ViewWorkDetails workDetails={workDetails} />
             <ViewEducationDetails educationDetails={educationDetails} />
+            <ViewSkills skills={skills} />
           </div>
         </div>
       </div>

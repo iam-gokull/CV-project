@@ -114,7 +114,12 @@ input:focus,
     bottom: 77px;
     position: relative;
     left: 109px;
+    margin-bottom: -77px;
 }
+
+/* .wrapper {
+    margin-bottom: -20px;
+} */
 
 
 /* Common styles for Experience and education */
