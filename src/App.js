@@ -4,8 +4,10 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import EditPersonalDetails from './components/PersonalDetails/EditPersonalDetails';
 import EditWorkDetails from './components/WorkDetails/EditWorkDetails';
+import EditEducationDetails from './components/EducationDetails/EditEducationDetails';
 import ViewPersonalDetails from './components/PersonalDetails/ViewPersonalDetails';
 import ViewWorkDetails from './components/WorkDetails/ViewWorkDetails';
+import ViewEducationDetails from './components/EducationDetails/ViewEducationDetails';
 import { v4 as uuidv4 } from 'uuid';
 
 class App extends Component {
@@ -24,6 +26,7 @@ class App extends Component {
         description: ''
       },
       workDetails: [],
+      educationDetails: [],
     }
 
   }
@@ -83,15 +86,54 @@ class App extends Component {
     }));
   }
 
+  handleEducationDetailsChange = (e, id) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      educationDetails: prevState.educationDetails.map(detail => {
+        if (detail.id === id) {
+          return {
+            ...detail,
+            [name]: value
+          };
+        } else {
+          return detail;
+        }
+      })
+    }));
+  }
+
+  addEducation = (e) => {
+    e.preventDefault();
+    const newEducation = {
+      id: uuidv4(),
+      university: '',
+      course: '',
+      startDate: '',
+      endDate: '',
+      experience: ''
+    };
+    this.setState(prevState => ({
+      educationDetails: [...prevState.educationDetails, newEducation],
+    }));
+  }
+
+  deleteEducation = (e, id) => {
+    e.preventDefault();
+    this.setState(prevState => ({
+      educationDetails: prevState.educationDetails.filter(detail => detail.id !== id),
+    }));
+  }
+
   render() {
-    const { personalDetails, editIsActive, viewIsActive, workDetails, workExperienceCount } = this.state;
+    const { personalDetails, editIsActive, viewIsActive, workDetails, educationDetails } = this.state;
     return (
       <div className="App">
         <Header handleButtonChange={this.handleButtonChange} editIsActive={editIsActive} viewIsActive={viewIsActive} />
         <div className={editIsActive ? "editor" : "editor hide"}>
           <form>
             <EditPersonalDetails handlePersonalDetailsChange={this.handlePersonalDetailsChange} personalDetails={personalDetails} />
-            <EditWorkDetails handleWorkDetailsChange={this.handleWorkDetailsChange} workDetails={workDetails} addWorkExperience={this.addWorkExperience} deleteWorkExperience={this.deleteWorkExperience} workExperienceCount={workExperienceCount}/>
+            <EditWorkDetails handleWorkDetailsChange={this.handleWorkDetailsChange} workDetails={workDetails} addWorkExperience={this.addWorkExperience} deleteWorkExperience={this.deleteWorkExperience}/>
+            <EditEducationDetails handleEducationDetailsChange={this.handleEducationDetailsChange} educationDetails={educationDetails} addEducation={this.addEducation} deleteEducation={this.deleteEducation} />
           </form>
         </div>
 
@@ -99,6 +141,7 @@ class App extends Component {
           <div className="a4-size">
             <ViewPersonalDetails personalDetails={personalDetails} />
             <ViewWorkDetails workDetails={workDetails} />
+            <ViewEducationDetails educationDetails={educationDetails} />
           </div>
         </div>
       </div>
