@@ -37,7 +37,9 @@ class EditWorkDetails extends Component {
                 <h5 className="heading">Work experience</h5>
                 <div className="wrapper">
                     {workDetails.map(workExperience => <this.workExperience {...workExperience} />)}
-                    <button className={workDetails.length !== 0 ? "add-btn btn appended" : "add-btn btn"} onClick={addWorkExperience}>Add</button>
+                    <div>
+                        <button className={workDetails.length !== 0 ? "add-btn btn appended" : "add-btn btn"} onClick={addWorkExperience}>Add</button>
+                    </div>
                 </div>
             </section>
         );

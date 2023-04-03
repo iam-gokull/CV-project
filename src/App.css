@@ -111,15 +111,15 @@ input:focus,
 }
 
 .add-btn.appended {
-    bottom: 77px;
-    position: relative;
-    left: 109px;
-    margin-bottom: -77px;
+    bottom: 0px;
+    position: absolute;
+    left: 100px;
 }
 
-/* .wrapper {
-    margin-bottom: -20px;
-} */
+.wrapper {
+    position: relative;
+    margin-bottom: 6px;
+}
 
 
 /* Common styles for Experience and education */
