@@ -158,22 +158,51 @@ input:focus,
 
 /* Print styles */
 
-@media print {
+/* @media print {
     @page {
-        size: A4;
-        /* margin: -20mm;
-        margin-top: -10mm; */
+        size: auto;
+         margin: 0.5cm; 
+    }
+
+    @page :first {
+        margin-top: 0mm;
     }
 
     #page-title, #page-url {
         display: none;
     }
 
-    * {
-        visibility: hidden;
+    .header, .editor, .btn {
+        display: none;
+    }
+} */
+
+@page { 
+    size: A4;
+    margin: 0mm;  
+} 
+
+@media print { 
+    body { 
+        -webkit-print-color-adjust: exact; 
+    } 
+
+    #page-title, #page-url {
+        display: none;
     }
 
-    .a4-size, .a4-size * {
-        visibility: visible;
+    .no-print, .no-print * {
+        display: none !important;
     }
+
+    .preview {
+        box-shadow: none !important;
+        border: none !important;;
+    }
+
+    #a4-size {
+        margin: 10mm;
+        display: block !important; 
+    }
+    
 }

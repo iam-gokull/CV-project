@@ -177,8 +177,8 @@ class App extends Component {
     const { personalDetails, editIsActive, viewIsActive, workDetails, educationDetails, skills, projects, certifications, customSection } = this.state;
     return (
       <div className="App">
-        <Header handleButtonChange={this.handleButtonChange} editIsActive={editIsActive} viewIsActive={viewIsActive} />
-        <div className={editIsActive ? "editor" : "editor hide"}>
+        <Header className="header" handleButtonChange={this.handleButtonChange} editIsActive={editIsActive} viewIsActive={viewIsActive} />
+        <div className={editIsActive ? "editor no-print" : "editor hide no-print"}>
           <form>
             <EditPersonalDetails handlePersonalDetailsChange={this.handlePersonalDetailsChange} personalDetails={personalDetails} />
             <EditWorkDetails handleWorkDetailsChange={this.handleWorkDetailsChange} workDetails={workDetails} addWorkExperience={this.addWorkExperience} deleteWorkExperience={this.deleteWorkExperience}/>
@@ -192,7 +192,7 @@ class App extends Component {
 
         
         <div className={viewIsActive ? "preview" : "preview hide"}>
-          <div className="a4-size">
+          <div id="a4-size">
             <ViewPersonalDetails personalDetails={personalDetails} />
             <ViewWorkDetails workDetails={workDetails} />
             <ViewEducationDetails educationDetails={educationDetails} />
@@ -202,7 +202,7 @@ class App extends Component {
             <ViewCustomSection customSection={customSection} />
           </div>
         </div>
-        {viewIsActive ? <button className="print-btn btn" onClick={this.handlePrint}>Print</button> : null}
+        {viewIsActive ? <button className="print-btn btn no-print" onClick={this.handlePrint}>Print</button> : null}
       </div>
     );
   }

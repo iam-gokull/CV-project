@@ -6,7 +6,7 @@ class Header extends Component {
     render() {
         const { handleButtonChange, editIsActive, viewIsActive } = this.props;
         return (
-            <div className="header-content">
+            <div className="header-content no-print">
                 <h3 className="header-logo">Resumes</h3>
                 <div className="header-menu">
                     <button className={editIsActive ? "edit-btn btn active" : "edit-btn btn"} onClick={editIsActive ? null : handleButtonChange}>Edit</button>
