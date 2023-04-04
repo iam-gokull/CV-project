@@ -154,3 +154,26 @@ input:focus,
 .sub-fields > div:first-child {
     width: fit-content;
 }
+
+
+/* Print styles */
+
+@media print {
+    @page {
+        size: A4;
+        /* margin: -20mm;
+        margin-top: -10mm; */
+    }
+
+    #page-title, #page-url {
+        display: none;
+    }
+
+    * {
+        visibility: hidden;
+    }
+
+    .a4-size, .a4-size * {
+        visibility: visible;
+    }
+}

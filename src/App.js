@@ -17,6 +17,8 @@ import ViewProjects from './components/Projects/ViewProjects';
 import ViewCertifications from './components/Certifications/ViewCertifications';
 
 import { v4 as uuidv4 } from 'uuid';
+import EditCustomSection from './components/CustomSection/EditCustomSection';
+import ViewCustomSection from './components/CustomSection/ViewCustomSection';
 
 class App extends Component {
 
@@ -39,8 +41,11 @@ class App extends Component {
       skills: '',
       projects: '',
       certifications: '',
+      customSection: {
+        customSectionHeading: '',
+        customSectionContent: '',
+      },
     }
-
   }
 
   handleButtonChange = () => {
@@ -154,8 +159,22 @@ class App extends Component {
     });
   }
 
+  handleCustomSectionChange = (e) => {
+    const { name, value } = e.target;
+    this.setState(prevState => ({
+      customSection: {
+        ...prevState.customSection,
+        [name]: value
+      }
+    }));
+  }
+
+  handlePrint = () => {
+    window.print();
+  }
+
   render() {
-    const { personalDetails, editIsActive, viewIsActive, workDetails, educationDetails, skills, projects, certifications } = this.state;
+    const { personalDetails, editIsActive, viewIsActive, workDetails, educationDetails, skills, projects, certifications, customSection } = this.state;
     return (
       <div className="App">
         <Header handleButtonChange={this.handleButtonChange} editIsActive={editIsActive} viewIsActive={viewIsActive} />
@@ -167,9 +186,11 @@ class App extends Component {
             <EditSkills handleSkillsChange={this.handleSkillsChange} skills={skills} />
             <EditProjects handleProjectsChange={this.handleProjectsChange} projects={projects} />
             <EditCertifications handleCertificationsChange={this.handleCertificationsChange} certifications={certifications} />
+            <EditCustomSection handleCustomSectionChange={this.handleCustomSectionChange} customSection={customSection} />
           </form>
         </div>
 
+        
         <div className={viewIsActive ? "preview" : "preview hide"}>
           <div className="a4-size">
             <ViewPersonalDetails personalDetails={personalDetails} />
@@ -178,8 +199,10 @@ class App extends Component {
             <ViewSkills skills={skills} />
             <ViewProjects projects={projects} />
             <ViewCertifications certifications={certifications} />
+            <ViewCustomSection customSection={customSection} />
           </div>
         </div>
+        {viewIsActive ? <button className="print-btn btn" onClick={this.handlePrint}>Print</button> : null}
       </div>
     );
   }
