@@ -165,6 +165,7 @@ class App extends Component {
       customSection: {
         ...prevState.customSection,
         [name]: value
+        
       }
     }));
   }

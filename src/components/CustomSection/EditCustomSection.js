@@ -19,14 +19,14 @@ class EditCustomSection extends Component {
     render() {
         const { customSection, handleCustomSectionChange } = this.props;
         return (
-            <section className="edit-certifications form-group">
+            <section className="edit-custome-section form-group">
                 <h5 className="heading">Custom section</h5>
                 {this.state.showRichText ?
                     <div>
                         <label htmlFor="customHeading">
-                            <input type="text" id="custom-section-heading" placeholder="Custom heading" name="customSectionHeading" value={customSection.customSectionHeading} onChange={(e) => handleCustomSectionChange(e)} />
+                            <input type="text" id="custom-section-heading" placeholder="Custom heading" name="customSectionHeading" value={customSection.customSectionHeading} onChange={handleCustomSectionChange} />
                         </label>
-                        <RichText name="certifications" value={customSection.customSectionContent} onContentChange={(e) => handleCustomSectionChange(e)} /></div> :
+                        <RichText name="customSectionContent" value={customSection.customSectionContent} onContentChange={handleCustomSectionChange} /></div> :
                     <button className="add-btn btn" onClick={(e) => this.addCustomSection(e)}>Add</button>}
             </section>
         );
