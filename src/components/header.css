@@ -22,3 +22,9 @@
     display: flex;
     gap: 20px;
 }
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    .header-content {
+        flex-direction: column;
+    }
+}

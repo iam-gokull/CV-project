@@ -35,7 +35,7 @@ class ViewPersonalDetails extends Component {
                 </div>
                 <div className="description">
                     {personalDetails.description ? <div className="line-breaker"></div> : null}
-                    <div className="rte-text" dangerouslySetInnerHTML={{__html: personalDetails.description}}></div>
+                    <span className="rte-text" dangerouslySetInnerHTML={{__html: personalDetails.description}}></span>
                 </div>
             </section>
         );

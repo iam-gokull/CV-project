@@ -10,17 +10,17 @@ class ViewWorkDetails extends Component {
                     {workDetails.map((workExperience) => (
                         <div>
                         <div key={workExperience.id} className="sub-details-header">
-                            <h6 className="position">{workExperience.position}</h6>
+                            <span className="position">{workExperience.position}</span>
                             <div className="sub-details-side-header">
-                                <h6 className="company">{workExperience.company}</h6>
+                                <span className="company">{workExperience.company}</span>
                                 {workExperience.startDate ? <span > | </span> : null}
-                                <h6 className="start-date">{workExperience.startDate}</h6>
+                                <span className="start-date">{workExperience.startDate}</span>
                                 {workExperience.endDate ? <span > - </span> : null}
-                                <h6 className="end-date">{workExperience.endDate}</h6>
+                                <span className="end-date">{workExperience.endDate}</span>
                             </div>
                             
                         </div>
-                        <div className="rte-text" dangerouslySetInnerHTML={{ __html: workExperience.experience }}></div>
+                        <span className="rte-text" dangerouslySetInnerHTML={{ __html: workExperience.experience }}></span>
                         </div>
                     ))}
                 </div>

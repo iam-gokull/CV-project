@@ -8,7 +8,7 @@
     flex-direction: column;
     align-items: center;
     width: 100vw;
-    font-size: 14px;
+    height: 100vh;
 }
 
 .btn {
@@ -71,9 +71,47 @@ input:focus,
 
 .editor {
     border: 2px solid var(--main-green);
-    width: 62%;
+    width: 1000px;
     margin-top: 20px;
     padding: 20px;
+    padding-right: 30px;
+}
+
+
+@media screen and (min-width: 1024px) {
+    .preview {
+        min-width: 210mm;
+        min-height: 297mm;
+        max-width: 210mm;
+        max-height: 297mm;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .editor {
+        width: calc(100vw - 20%);
+    }
+
+    .preview {
+        width: calc(100vw - 20%);
+        height: calc((100vh - 30%));
+    }
+}
+
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    .editor {
+        width: calc(100vw - 20%) !important;
+    }
+
+    .preview {
+        width: calc(100vw - 20%);
+        height: calc(100vh - 20%);
+        padding: 20px !important;
+    }
+
+    span {
+        font-size: 10px !important;
+    }
 }
 
 .hide {
@@ -91,14 +129,9 @@ input:focus,
 .preview {
     box-shadow: 5px 0 6px 0 hsl(0 0% 0%/.2);
     border: 1px solid var(--main-green);
-    width: 57%;
     margin-top: 20px;
     padding: 30px 60px;
     border-radius: 2px;
-    min-width: 210mm;
-    min-height: 297mm;
-    max-width: 210mm;
-    max-height: 297mm;
     overflow: hidden;
     page-break-after: always;
 }
@@ -130,7 +163,7 @@ input:focus,
     font-weight: 400;
 }
 
-.side-heading > div {
+.side-heading>div {
     border: 1px solid var(--main-green);
     margin: 5px -1px;
 }
@@ -138,7 +171,7 @@ input:focus,
 .sub-details-header {
     margin: 10px 0;
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
 }
 
 .sub-details-header * {
@@ -146,12 +179,18 @@ input:focus,
     font-weight: 600;
 }
 
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    .side-heading {
+        font-size: 12px !important;
+    }
+}
+
 .sub-details-side-header {
     display: flex;
     gap: 5px;
 }
 
-.sub-fields > div:first-child {
+.sub-fields>div:first-child {
     width: fit-content;
 }
 
@@ -177,32 +216,35 @@ input:focus,
     }
 } */
 
-@page { 
+@page {
     size: A4;
-    margin: 0mm;  
-} 
+    margin: 0mm;
+}
 
-@media print { 
-    body { 
-        -webkit-print-color-adjust: exact; 
-    } 
+@media print {
+    body {
+        -webkit-print-color-adjust: exact;
+    }
 
-    #page-title, #page-url {
+    #page-title,
+    #page-url {
         display: none;
     }
 
-    .no-print, .no-print * {
+    .no-print,
+    .no-print * {
         display: none !important;
     }
 
     .preview {
         box-shadow: none !important;
-        border: none !important;;
+        border: none !important;
+        ;
     }
 
     #a4-size {
         margin: 10mm;
-        display: block !important; 
+        display: block !important;
     }
-    
+
 }

@@ -21,6 +21,16 @@
     margin: 0;
 }
 
+@media screen and (min-width: 300px) and (max-width: 767px) {
+    .name {
+        font-size: 18px !important;
+    }
+
+    .job-title {
+        font-size: 15px !important;
+    }
+}
+
 .job-title {
     font-size: 22px;
     color: var(--main-green);
@@ -29,9 +39,6 @@
     opacity: 0.8;
 }
 
-.side-details {
-    margin-left: 50px;
-}
 
 .details {
     display: flex;

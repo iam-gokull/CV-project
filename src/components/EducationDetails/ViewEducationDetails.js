@@ -10,16 +10,16 @@ class ViewEducationDetails extends Component {
                     {educationDetails.map((education) => (
                         <div>
                         <div key={education.id} className="sub-details-header">
-                            <h6 className="position">{education.course}</h6>
+                            <span className="position">{education.course}</span>
                             <div className="sub-details-side-header">
-                                <h6 className="company">{education.university}</h6>
+                                <span className="company">{education.university}</span>
                                 {education.startDate ? <span > | </span> : null}
-                                <h6 className="start-date">{education.startDate}</h6>
+                                <span className="start-date">{education.startDate}</span>
                                 {education.endDate ? <span > - </span> : null}
-                                <h6 className="end-date">{education.endDate}</h6>
+                                <span className="end-date">{education.endDate}</span>
                             </div>
                         </div>
-                        <div className="rte-text" dangerouslySetInnerHTML={{ __html: education.experience }}></div>
+                        <span className="rte-text" dangerouslySetInnerHTML={{ __html: education.experience }}></span>
                         </div>
                     ))}
                 </div>
